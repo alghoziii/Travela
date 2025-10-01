@@ -14,25 +14,25 @@
                     @csrf
 
                     <div>
-                        <x-input-label for="bank_name" :value="__('bank_name')" />
+                        <x-input-label for="bank_name" :value="__('Nama Bank')" />
                         <x-text-input id="bank_name" class="block mt-1 w-full" type="text" name="bank_name" :value="old('bank_name')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('bank_name')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="bank_account_name" :value="__('bank_account_name')" />
+                        <x-input-label for="bank_account_name" :value="__('Nama Akun Bank')" />
                         <x-text-input id="bank_account_name" class="block mt-1 w-full" type="text" name="bank_account_name" :value="old('bank_account_name')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('bank_account_name')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="bank_account_number" :value="__('bank_account_number')" />
+                        <x-input-label for="bank_account_number" :value="__('Nomor Akun BANK')" />
                         <x-text-input id="bank_account_number" class="block mt-1 w-full" type="number" name="bank_account_number" :value="old('bank_account_number')" required autofocus autocomplete="name" />
                         <x-input-error :messages="$errors->get('bank_account_number')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="logo" :value="__('logo')" />
+                        <x-input-label for="logo" :value="__('Logo')" />
                         <x-text-input id="logo" class="block mt-1 w-full" type="file" name="logo" required autofocus autocomplete="logo" />
                         <x-input-error :messages="$errors->get('logo')" class="mt-2" />
                     </div>
