@@ -31,9 +31,14 @@
                         <select name="category_id" id="category_id" class="py-3 rounded-lg pl-3 w-full border border-slate-300">
                             <option value="">Choose category</option>
                             @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->name}}</option>
+                            <option value="{{$category->id}}" @selected(old('category_id', $packageTour->category_id) == $category->id)>
+                                {{$category->name}}
+                            </option>
+
                             @endforeach
                         </select>
+
+
 
                         <x-input-error :messages="$errors->get('category')" class="mt-2" />
                     </div>
