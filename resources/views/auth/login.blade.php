@@ -29,7 +29,12 @@
                             </div>
                             <input type="email" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Your email address" name="email">
                         </div>
+                        @error('email')
+                        <p class="text-red-500 text-xs mt-1 font-medium">{{ $message }}</p>
+                        @enderror
                     </div>
+
+
                     <div class="flex flex-col gap-1 w-full">
                         <p class="font-semibold">Password</p>
                         <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
@@ -38,6 +43,9 @@
                             </div>
                             <input type="password" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Enter your valid password" name="password">
                         </div>
+                        @error('password')
+                        <p class="text-red-500 text-xs mt-1 font-medium">{{ $message }}</p>
+                        @enderror
                     </div>
                 </div>
                 <button type="submit" class="bg-[#4D73FF] p-[16px_24px] w-full max-w-[311px] rounded-[10px] text-center text-white font-semibold hover:bg-[#06C755] transition-all duration-300">Sign In</button>

@@ -31,13 +31,16 @@
                                 <div id="chosse-file-dummy-btn" class="border border-[#8D9397] bg-[#F3F4F8] py-1 px-2 rounded-lg text-nowrap text-sm leading-[22px] tracking-035 h-fit">Choose File</div>
                                 <div>
                                     <p id="placeholder" class="text-nowrap text-[#BFBFBF] text-sm tracking-035 leading-[22px] text-left">No file chosen</p>
-                                    <div id="file-info" class="hiddenflex flex-row flex-nowrap gap-3 items-center">
+                                    <div id="file-info" class="hidden flex-row flex-nowrap gap-3 items-center">
                                         <span id="fileName" class="text-sm tracking-035 leading-[22px] text-nowrap"></span>
                                     </div>
                                 </div>
                                 <input type="file" name="avatar" id="file" class="hidden">
                             </button>
                         </div>
+                        @error('avatar')
+                        <p class="text-red-600 text-xs mt-1 font-medium">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="flex flex-col gap-1 w-full">
                         <p class="font-semibold">Full Name</p>
@@ -45,8 +48,11 @@
                             <div class="w-4 h-4 flex shrink-0">
                                 <img src="assets/icons/user-flat-black.svg" alt="icon">
                             </div>
-                            <input type="text" name="name" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Write your full name">
+                            <input type="text" name="name" value="{{ old('name') }}" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Write your full name">
                         </div>
+                        @error('name')
+                        <p class="text-red-600 text-xs mt-1 font-medium">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="flex flex-col gap-1 w-full">
                         <p class="font-semibold">Phone Number</p>
@@ -54,18 +60,26 @@
                             <div class="w-4 h-4 flex shrink-0">
                                 <img src="assets/icons/call.svg" alt="icon">
                             </div>
-                            <input type="tel" name="phone_number" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Your valid phone number">
+                            <input type="tel" name="phone_number" value="{{ old('phone_number') }}" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Your valid phone number">
                         </div>
+                        @error('phone_number')
+                        <p class="text-red-600 text-xs mt-1 font-medium">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div class="flex flex-col gap-1 w-full">
                         <p class="font-semibold">Email Address</p>
                         <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
                             <div class="w-4 h-4 flex shrink-0">
                                 <img src="assets/icons/sms.svg" alt="icon">
                             </div>
-                            <input type="email" name="email" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Your email address">
+                            <input type="email" name="email" value="{{ old('email') }}" class="appearance-none outline-none w-full text-sm placeholder:text-[#BFBFBF] tracking-[0.35px]" placeholder="Your email address">
                         </div>
+                        @error('email')
+                        <p class="text-red-600 text-xs mt-1 font-medium">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div class="flex flex-col gap-1 w-full">
                         <p class="font-semibold">Password</p>
                         <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
@@ -78,7 +92,11 @@
                                 <img src="assets/icons/password-eye-slash.svg" class="hide-password hidden" alt="icon">
                             </button>
                         </div>
+                        @error('password')
+                        <p class="text-red-600 text-xs mt-1 font-medium">{{ $message }}</p>
+                        @enderror
                     </div>
+
                     <div class="flex flex-col gap-1 w-full">
                         <p class="font-semibold">Confirm Password</p>
                         <div class="flex items-center gap-3 p-[16px_12px] border border-[#BFBFBF] rounded-xl focus-within:border-[#4D73FF] transition-all duration-300">
@@ -91,11 +109,15 @@
                                 <img src="assets/icons/password-eye-slash.svg" class="hide-password hidden" alt="icon">
                             </button>
                         </div>
+                        @error('password_confirmation')
+                        <p class="text-red-600 text-xs mt-1 font-medium">{{ $message }}</p>
+                        @enderror
                     </div>
+
                 </div>
                 <button type="submit" class="bg-[#4D73FF] p-[16px_24px] w-full max-w-[311px] rounded-[10px] text-center text-white font-semibold hover:bg-[#06C755] transition-all duration-300">Sign up</button>
                 <p class="text-center text-sm tracking-035 text-darkGrey">Already have account?
-                    <a href={{ route('login') }}class="text-[#4D73FF] font-semibold tracking-[0.6px]">Sign In</a>
+                    <a href={{ route('login') }}class="text-[#4D73F] font-semibold tracking-[0.6px]">Sign In</a>
                 </p>
             </form>
         </div>

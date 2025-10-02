@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Route::get('/dashboard/profile', [ProfileController::class, 'edit'])->name('dashboard.profile');
+    // Route::get('/dashboard/profile', [ProfileContro  ller::class, 'edit'])->name('dashboard.profile');
 
     Route::middleware('can:checkout package')->group(function () {
         Route::get('/book{packageTour:slug}', [FrontController::class, 'book'])
