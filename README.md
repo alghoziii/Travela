@@ -28,6 +28,6 @@ Travela adalah website booking paket travel yang membantu pengguna menemukan pak
 - **Deploy**: Jenkins
 - **Database**: Mysql
 
-## Fitur Keren Banget! ✨
+## Link Figma : https://www.figma.com/design/ocTfjPfm3DMTGFWRqT9d29/Travel-Booking-App?node-id=794-2061&t=KXaBraDCXAXdpDfO-0
 
 
