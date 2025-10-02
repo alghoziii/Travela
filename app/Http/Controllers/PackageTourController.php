@@ -9,7 +9,6 @@ use App\Models\PackageTour;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PackageTourController extends Controller
@@ -118,16 +117,13 @@ class PackageTourController extends Controller
             // Log::info('Data Validated:', $validated);
 
             if ($request->hasFile('thumbnail')) {
-                if ($packageTour->thumbnail) {
-                    Storage::disk('public')->delete($packageTour->thumbnail);
-                }
-
                 $thumbnailPath =
                     $request->file('thumbnail')->store('thumbnails/' . date('Y/m/d'), 'public');
                 $validated['thumbnail'] = $thumbnailPath;
             }
 
             $validated['slug'] = Str::slug($validated['name']);
+
             $packageTour->update($validated);
 
             if ($request->hasFile('photos')) {
@@ -139,7 +135,7 @@ class PackageTourController extends Controller
                 }
             };
         });
-        return redirect()->route('admin.package_tours.index')->with('success', 'Data Tour berhasil diperbarui!');
+        return redirect()->route('admin.package_tours.index');
     }
 
     /**
