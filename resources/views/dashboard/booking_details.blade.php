@@ -71,13 +71,15 @@
             </div>
         </div>
         <div class="flex flex-col gap-3 px-4 ">
-            <a href="home.html" class="p-[16px_24px] rounded-xl bg-blue w-full text-white text-center flex items-center justify-center gap-3  hover:bg-[#06C755] transition-all duration-300">
+            <a href="https://wa.me/6283874723607" target="_blank"
+                class="p-[16px_24px] rounded-xl bg-blue w-full text-white text-center flex items-center justify-center gap-3 hover:bg-[#06C755] transition-all duration-300">
                 <div class="w-6 h-6">
                     <img src="{{asset('assets/icons/messages.svg')}}" alt="icon">
                 </div>
                 <span>Contact Travel Agent</span>
             </a>
         </div>
+
     </div>
 </section>
 @endsection
