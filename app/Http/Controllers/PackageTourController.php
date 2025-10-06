@@ -21,7 +21,9 @@ class PackageTourController extends Controller
     public function index()
     {
         //
-        $package_tours = PackageTour::orderByDesc('id')->paginate(10);
+        $package_tours = PackageTour::with('category')
+            ->orderByDesc('id')
+            ->paginate(10);
         return view('admin.package_tours.index', compact('package_tours'));
     }
 
@@ -48,6 +50,8 @@ class PackageTourController extends Controller
         //
         DB::transaction(function () use ($request) {
             $validated = $request->validated();
+
+            $validated['category_id'] = $request->input('category_id') ?: null;
 
             // Log::info('Data Validated:', $validated);
 
@@ -82,6 +86,7 @@ class PackageTourController extends Controller
     public function show(PackageTour $packageTour)
     {
         //
+        $packageTour->load('category');
 
         $latestPhotos = $packageTour->package_photos()->orderByDesc('id')->take(3)->get();
         return view('admin.package_tours.show', compact('packageTour', 'latestPhotos'));
@@ -95,6 +100,7 @@ class PackageTourController extends Controller
      */
     public function edit(PackageTour $packageTour)
     {
+        $packageTour->load('category');
         //
         $categories = Category::orderByDesc('id')->get();
         $latestPhotos = $packageTour->package_photos()->orderByDesc('id')->take(3)->get();
@@ -113,6 +119,7 @@ class PackageTourController extends Controller
         //
         DB::transaction(function () use ($request, $packageTour) {
             $validated = $request->validated();
+            $validated['category_id'] = $request->input('category_id') ?: null;
 
             // Log::info('Data Validated:', $validated);
 
