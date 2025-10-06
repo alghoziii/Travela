@@ -20,7 +20,7 @@
                         <img src="{{Storage::url($tour->thumbnail)}}" alt="" class="rounded-2xl object-cover w-[120px] h-[90px]">
                         <div class="flex flex-col">
                             <h3 class="text-indigo-950 text-xl font-bold">{{$tour->name}}</h3>
-                            <p class="text-slate-500 text-sm">{{$tour->category->name}}</p>
+                            <p class="text-slate-500 text-sm">{{ $tour->category?->name ?? 'Uncategorized' }}</p>
                         </div>
                     </div>
                     <div class="hidden md:flex flex-col">
